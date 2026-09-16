@@ -2,6 +2,12 @@
 
 AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharmacy workflows through Citrix.
 
+## Runtime and Smart workflow status
+
+In v2.6.2, Window and batch Window stop before routing until Date access is qualified. UPSG, batch UPSG and Bridge UPSG stop before mutation until Comments identification is qualified. Other retained workflows still use guarded Client coordinates. A submission send is displayed as sent/unconfirmed, not Oracle acceptance. These source changes are not live-qualified.
+
+The stable v2.6.2 ZIP starts in normal runtime. A ZIP labeled **normal-candidate** is a separate review artifact. Start `Scripts.ahk` normally; only `--target-probe` selects a read-only diagnostic session. Smart SIG, Smart Refill field operations and Smart Route acquisition still require qualified production field evidence. GUI and live Oracle acceptance have NOT RUN. Read `CANDIDATE-STATUS.md` when included.
+
 ## Download
 
 Open the [latest GitHub Release](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/latest) and download the attached file named `VA-Pharmacy-Automation-vX.Y.Z.zip`.
@@ -85,9 +91,9 @@ This public repository is the download and issue-reporting surface. Development 
 
 ## Smart SIG
 
-Smart SIG (`Ctrl+Alt+S`) recognizes a complete dosing prefix and looks up its exact semantic key in a validated external library. The only shipped approved mapping is **TAKE 1 TABLET BY MOUTH DAILY -> `T1 PO D`**, Source `USER_CONFIRMED`. Spaces are part of the literal output. There is no token composition, form-character emission, template expansion, wildcard, or fallback. BID, PRN, half-dose, capsule, nasal, bedtime and other recognized combinations have no approved default and make no changes.
+Smart SIG (`Ctrl+Alt+S`) recognizes a complete dosing prefix and resolves approved data. Shipped USER_CONFIRMED literals are TAKE 1 TABLET ORAL DAILY -> `T1 PO D`, TAKE 1 CAPSULE ORAL TWICE_DAILY -> `T1 PO BID`, and TAKE 0.5 TABLET ORAL DAILY -> `T0.5 PO D`. Exact mappings take precedence. The only supported schema-2 family is INJECT `{units}` UNIT SUBCUTANEOUS MORNING, non-PRN, blank indication/duration -> `INJ{units} SQ QAM`. It accepts canonical positive integer dose strings with an explicit route, including UNDER THE SKIN; unsupported regimens remain non-mutating. This is not a general template engine.
 
-The existing New Order/Refill entry, bound prescription and commit guards remain. SIG uses qualified client coordinate `74,118`; Instructions uses `270,386`. The workflow captures Instructions, resolves one pinned library generation, offers genuine residual text through **Include Instructions / Do Not Include Instructions / Cancel**, revalidates the bound prescription, writes the exact SIG and commits with Tab, then updates or clears Instructions. Cancel, Escape, close, no mapping, ambiguity, invalid active library or a changed generation before writing leave both fields unchanged. Smart SIG does not submit the order or populate other fields. A partially transmitted SIG operation cannot be rolled back: failure stops processing and preserves Instructions. A subsequent Instructions failure reports `SMART_SIG_INSTRUCTIONS_UPDATE_FAILED`.
+The existing New Order/Refill entry, bound prescription and commit guards remain. The legacy SIG `74,118` and Instructions `270,386` coordinates do not establish field identity. Smart SIG currently stops before field input because native field identity and the remote layout have not been qualified. Smart Refill Date/Time input has the same containment. No replacement coordinates were inferred; this is not a live-qualified fix. For qualified targets, acquisition settles physical launch/modifier keys under workflow ownership and uses guarded explicit Control events with cleanup; clipboard capture requires fresh text and preserves detectable concurrent updates. Local key state is not proof of remote delivery. A failed acquisition means Stopped; review Instructions, with no guessed rollback. The editable **Include Instructions / Do Not Include Instructions / Cancel** chooser preserves pharmacist edits exactly. Include-empty and Exclude clear source Instructions only after SIG Tab commit. Tabs/newlines are visibly flattened and require another Include click; other controls are rejected. Cancel, Escape and close perform no intentional replacement. A later Instructions failure reports `SMART_SIG_INSTRUCTIONS_UPDATE_FAILED`.
 
 Residual source offsets, parentheses, whitespace handling and sentence-case conversion of all-uppercase residual text are preserved. Unconsumed dosing qualifiers such as may increase/decrease, hold if, breakthrough dosing, unresolved as directed, alternate schedules, late PRN/duration and unknown PRN indications fail closed. Ordinary strength-change notes and bridge markers may use the chooser. The finite parser does not understand arbitrary prose.
 
@@ -100,6 +106,8 @@ Residual source offsets, parentheses, whitespace handling and sentence-case conv
 - Paths are relative to the installation folder, independent of the working directory.
 - Save UTF-8 (with or without BOM), or BOM-marked UTF-16LE, tab-delimited text. Import all spreadsheet columns as text. Do not save XLSX or CSV under a TSV filename. Dates such as a spreadsheet-converted `1-2`, scientific notation and formulas are rejected.
 - Preserve the exact 14-column header and empty cells. LF/CRLF and a missing final newline are supported; empty lines after the header are ignored. Optional quoted cells may use doubled quotes. Embedded tabs/newlines and control characters are rejected. Limits: 1 MiB and 10,000 data rows per file.
+
+Existing schema-1 user files remain unchanged. Mixed schema-1/schema-2 files retain the 14-column header. Schema 2 supports only the injection row described above, with approved provenance; duplicate templates (including disabled definitions), arbitrary placeholders and other versions are rejected. Deploy code and default data together: older executables cannot load schema 2.
 
 ### Schema version 1
 
