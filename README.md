@@ -4,9 +4,11 @@ AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharm
 
 ## Runtime and Smart workflow status
 
-In v2.6.2, Window and batch Window stop before routing until Date access is qualified. UPSG, batch UPSG and Bridge UPSG stop before mutation until Comments identification is qualified. Other retained workflows still use guarded Client coordinates. A submission send is displayed as sent/unconfirmed, not Oracle acceptance. These source changes are not live-qualified.
+Version 2.6.3 repairs diagnostic class collection and export handling and restores the classic light Pharmacy Console appearance while retaining Developer mode. Diagnostic observations do not qualify production field access.
 
-The stable v2.6.2 ZIP starts in normal runtime. A ZIP labeled **normal-candidate** is a separate review artifact. Start `Scripts.ahk` normally; only `--target-probe` selects a read-only diagnostic session. Smart SIG, Smart Refill field operations and Smart Route acquisition still require qualified production field evidence. GUI and live Oracle acceptance have NOT RUN. Read `CANDIDATE-STATUS.md` when included.
+In v2.6.3, Window and batch Window stop before routing until Date access is qualified. UPSG, batch UPSG and Bridge UPSG stop before mutation until Comments identification is qualified. Other retained workflows still use guarded Client coordinates. A submission send is displayed as sent/unconfirmed, not Oracle acceptance. These source changes are not live-qualified.
+
+The stable v2.6.3 ZIP starts in normal runtime. A ZIP labeled **normal-candidate** is a separate review artifact. Start `Scripts.ahk` normally; only `--target-probe` selects a read-only diagnostic session. Smart SIG, Smart Refill field operations and Smart Route acquisition still require qualified production field evidence. GUI and live Oracle acceptance have NOT RUN. Read `CANDIDATE-STATUS.md` when included.
 
 ## Download
 
