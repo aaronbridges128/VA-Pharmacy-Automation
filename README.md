@@ -4,11 +4,11 @@ AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharm
 
 ## Runtime and Smart workflow status
 
-Version 2.6.3 repairs diagnostic class collection and export handling and restores the classic light Pharmacy Console appearance while retaining Developer mode. Diagnostic observations do not qualify production field access.
+Version 2.7.0 adds native-size visual anchors for Order Entry, routing/priority, Rx qty, PRN, Comments, Routing Option Override and PowerChart Documentation. Covered targets use measured relative interiors, guarded input and existing result-verification protocols. The classic Console, hotkeys and clinical policies are retained. Diagnostic observations do not qualify protected field access.
 
-In v2.6.3, Window and batch Window stop before routing until Date access is qualified. UPSG, batch UPSG and Bridge UPSG stop before mutation until Comments identification is qualified. Other retained workflows still use guarded Client coordinates. A submission send is displayed as sent/unconfirmed, not Oracle acceptance. These source changes are not live-qualified.
+Window/batch Window remain gated on Date access; UPSG/batch UPSG remain gated on Comments keyboard-focus evidence. All Bridge modes stop before copying while lower Instructions append is unqualified. SIG, lower Instructions and Date/Time reads/writes remain gated. Blue borders are hover appearance, not proof of focus. PRN is located separately without automatic toggling. Upper Sig instructions is display-only. A submission send remains sent/unconfirmed, not Oracle acceptance.
 
-The stable v2.6.3 ZIP starts in normal runtime. A ZIP labeled **normal-candidate** is a separate review artifact. Start `Scripts.ahk` normally; only `--target-probe` selects a read-only diagnostic session. Smart SIG, Smart Refill field operations and Smart Route acquisition still require qualified production field evidence. GUI and live Oracle acceptance have NOT RUN. Read `CANDIDATE-STATUS.md` when included.
+The stable v2.7.0 ZIP starts in normal runtime. Extract all files, including Images/Runtime, together. Missing, altered, ambiguous or unsupported visual assets stop the dependent operation; there is no fixed-point rescue. Templates are exact native-size pixels, with no automatic DPI scaling or tolerance escalation. A ZIP labeled **normal-candidate** is a separate review artifact. Only `--target-probe` selects read-only diagnostics. Smart SIG, Smart Refill and Smart Route remain subject to their qualification gates. AutoHotkey, GUI and live Oracle acceptance have NOT RUN. Read `CANDIDATE-STATUS.md` when included.
 
 ## Download
 
