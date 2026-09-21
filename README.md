@@ -1,14 +1,15 @@
+<!-- VA Pharmacy Automation v2.7.3 -->
 # VA Pharmacy Automation
 
 AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharmacy workflows through Citrix.
 
 ## Runtime and Smart workflow status
 
-Version 2.7.1 adds native-size visual anchors for Order Entry, routing/priority, Rx qty, PRN, Comments, Routing Option Override and PowerChart Documentation. Covered targets use measured relative interiors, guarded input and existing result-verification protocols. The classic Console, hotkeys and clinical policies are retained. Diagnostic observations do not qualify protected field access.
+Version 2.7.3 adds catalog-backed Smart SIG and Console stability while retaining the v2.7.1 native-size visual anchors for Order Entry, routing/priority, Rx qty, PRN, Comments, Routing Option Override and PowerChart Documentation. Covered targets use measured relative interiors, guarded input and existing result-verification protocols. The classic Console, hotkeys and clinical policies are retained. Diagnostic observations do not qualify protected field access.
 
 Window/batch Window, UPSG/batch UPSG, Bridge, Smart SIG and Smart Refill now use explicit visual field protocols with guarded interaction and existing value/state checks. They require the configured assets to match the workstation. Blue borders are hover appearance, not proof of focus. PRN is located separately without automatic toggling. Upper Sig instructions is display-only. A submission send remains sent/unconfirmed, not Oracle acceptance.
 
-The stable v2.7.1 ZIP starts in normal runtime. Extract all files, including Images/Runtime, together. Missing, altered, ambiguous or unsupported visual assets stop the dependent operation; there is no fixed-point rescue. Templates retain native size with fixed per-anchor color variation and bounded polling; no automatic DPI scaling or tolerance escalation. A ZIP labeled **normal-candidate** is a separate review artifact. Only `--target-probe` selects read-only diagnostics. Smart SIG, Smart Refill, Window, UPSG and Bridge use reviewed visual field protocols. Smart Route remains unavailable without selected-prescription data acquisition. AutoHotkey, GUI and live Oracle acceptance have NOT RUN. Read `CANDIDATE-STATUS.md` when included.
+The v2.7.3 package starts in normal runtime. Extract all files, including Images/Runtime and Images/Squirrel.jpg, together. Missing, altered, ambiguous or unsupported visual assets stop the dependent operation; there is no fixed-point rescue. Templates retain native size with fixed per-anchor color variation and bounded polling; no automatic DPI scaling or tolerance escalation. A ZIP labeled **normal-candidate** is a separate review artifact. Only `--target-probe` selects read-only diagnostics. Smart SIG, Smart Refill, Window, UPSG and Bridge use reviewed visual field protocols. Smart Route remains unavailable without selected-prescription data acquisition. AutoHotkey, GUI and live Oracle acceptance have NOT RUN. Read `CANDIDATE-STATUS.md` when included.
 
 ## Read-only visual preflight
 
@@ -97,7 +98,7 @@ This public repository is the download and issue-reporting surface. Development 
 
 ## Smart SIG
 
-Smart SIG (`Ctrl+Alt+S`) recognizes a complete dosing prefix and resolves approved data. Shipped USER_CONFIRMED literals are TAKE 1 TABLET ORAL DAILY -> `T1 PO D`, TAKE 1 CAPSULE ORAL TWICE_DAILY -> `T1 PO BID`, and TAKE 0.5 TABLET ORAL DAILY -> `T0.5 PO D`. Exact mappings take precedence. The only supported schema-2 family is INJECT `{units}` UNIT SUBCUTANEOUS MORNING, non-PRN, blank indication/duration -> `INJ{units} SQ QAM`. It accepts canonical positive integer dose strings with an explicit route, including UNDER THE SKIN; unsupported regimens remain non-mutating. This is not a general template engine.
+Smart SIG (`Ctrl+Alt+S`) uses the supplied, user-approved 765-entry Oracle catalog and constrained composition: `{Verb}{Quantity} {Formulation} {Route} {Frequency}`. Bedtime produces `T1 TAB PO QHS`; the demonstrated two-capsule daily instruction produces `T2 CAP PO D`. Half-tablet daily produces `T0.5 TAB PO D`. Eight compatible families cover oral, mucosal, drops, inhaled, topical, rectal, vaginal and fixed whole-unit subcutaneous morning injection instructions; the latter produces `INJ{units} UN SQ QAM`. The catalog has 385 typed recognition rules; 765 imported components do not mean 765 supported prescriptions. Catalog rows requiring richer grammar remain explicitly classified and addressable, not enabled merely because a token exists. No route is inferred from tablet/capsule form, no concentrations are converted, and unsupported essential qualifiers reject without replacement.
 
 The existing New Order/Refill entry, bound prescription and commit guards remain. The legacy SIG `74,118` and Instructions `270,386` coordinates do not establish field identity. Smart SIG currently stops before field input because native field identity and the remote layout have not been qualified. Smart Refill Date/Time input has the same containment. No replacement coordinates were inferred; this is not a live-qualified fix. For qualified targets, acquisition settles physical launch/modifier keys under workflow ownership and uses guarded explicit Control events with cleanup; clipboard capture requires fresh text and preserves detectable concurrent updates. Local key state is not proof of remote delivery. A failed acquisition means Stopped; review Instructions, with no guessed rollback. The editable **Include Instructions / Do Not Include Instructions / Cancel** chooser preserves pharmacist edits exactly. Include-empty and Exclude clear source Instructions only after SIG Tab commit. Tabs/newlines are visibly flattened and require another Include click; other controls are rejected. Cancel, Escape and close perform no intentional replacement. A later Instructions failure reports `SMART_SIG_INSTRUCTIONS_UPDATE_FAILED`.
 
@@ -124,7 +125,7 @@ Existing schema-1 user files remain unchanged. Mixed schema-1/schema-2 files ret
 | Id | Unique lowercase ASCII identifier, `[a-z][a-z0-9_]*`, maximum 64 characters |
 | Action, Quantity, Form, Route, Frequency | Exact canonical semantic values from the vocabulary below; quantity is literal text |
 | PRN | Exactly `0` or `1` |
-| Indication | Canonical indication, or blank for absence; non-PRN rows cannot carry an indication |
+| Indication | Canonical indication, or blank for absence; scheduled and PRN indications are distinct |
 | DurationDays | Positive integer days, or blank for absence |
 | SigCode | Exact opaque literal; required for enabled rows; spaces/case/punctuation are preserved |
 | Description | Nonempty human explanation for enabled rows |
@@ -132,17 +133,17 @@ Existing schema-1 user files remain unchanged. Mixed schema-1/schema-2 files ret
 
 The complete key is Action, Quantity, Form, Route, Frequency, PRN, Indication and DurationDays. Blank qualifiers mean absence, never wildcard. All fields must describe a parser-supported combination. Source is a pharmacist attestation, not independent proof of Oracle syntax. Never enter patient data. References are plain text and are never fetched or executed. TEST_ONLY, UNVERIFIED_HISTORICAL and CONTRADICTED do not authorize production output.
 
-IDs must be unique across both files, including disabled rows. Duplicate enabled semantic keys are errors even when their output strings agree. User rows never override defaults. Disabled rows still need valid identity and semantics; their output, description and source may be empty. A header-only user file is valid. If a later release duplicates a local mapping, remove or disable the redundant local row with a distinct ID and reload; the application never rewrites the local library.
+IDs must be unique within each file, including disabled rows. Duplicate enabled semantic keys within one file are errors even when their output strings agree. In a catalog snapshot, an explicitly approved local full-SIG row overrides the same complete key from bundled defaults/composition, so an intentional legacy `T1 PO D` user row remains usable. Conflicting same-priority outputs fail; identical defensive matches deduplicate. A plain custom key cannot erase meal/awake qualifiers. Bundled canonical defaults cannot silently shadow composition with a conflicting output. A header-only, missing or optional zero-byte user file is valid with no custom mappings. Whitespace-only, BOM-only, malformed or locked files are preserved for correction. The application never rewrites user mappings to resolve overlaps.
 
 ### Load status and updates
 
-The tab displays active default/user counts, generation, last successful load, latest attempt and sanitized row/column errors. A failed reload retains the previous snapshot, counts, generation and loaded timestamp. On startup, invalid user data or cross-file conflicts activate only independently valid defaults with a visible warning. Missing/invalid defaults disable Smart SIG resolution while other valid workflows remain available. Missing user data on explicit reload returns to defaults. Structural validity does not certify Oracle acceptance.
+The tab displays active default/user counts, generation, last successful load, latest attempt and sanitized row/column errors. A failed reload retains the previous snapshot, counts, generation and loaded timestamp. On startup, invalid user data activates only independently valid catalog/defaults with a visible warning. Missing/invalid defaults, catalog or composition rules disable Smart SIG resolution while other valid workflows remain available. Missing user data on explicit reload returns to defaults. Structural validity does not certify Oracle acceptance.
 
 For updates in the existing installation folder, close the script before extraction, retain the local user TSV, and restart after complete extraction. For a new installation folder, keep the old installation and deliberately copy its user TSV into the new Data folder before use/reload. The package contains no user file. Update discovery remains notification-only; no automatic installation, migration or mapping download occurs.
 
 ### Supported semantic vocabulary
 
-These values come from the current recognizer; their presence does not approve an Oracle output or every cross-product combination.
+The following legacy literal-schema vocabulary remains for local-file compatibility; its presence does not enable every combination. Production composition additionally uses the fingerprinted Data/OracleSigCatalog.tsv and Data/OracleSigRules.tsv, with provenance in Data/OracleSigProvenance.json. Component approval and typed compatibility govern production output; unsupported legacy vocabulary cannot bypass completeness checks.
 
 - **Actions:** INHALE_CONTENTS, TAKE, USE, APPLY, INHALE, INSTILL, INSERT, INJECT, PUT, DISSOLVE, CHEW, SWALLOW, GIVE.
 
