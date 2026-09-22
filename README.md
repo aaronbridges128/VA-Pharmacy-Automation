@@ -1,15 +1,17 @@
-<!-- VA Pharmacy Automation v2.7.3 -->
+<!-- VA Pharmacy Automation v2.7.4 -->
 # VA Pharmacy Automation
 
 AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharmacy workflows through Citrix.
 
 ## Runtime and Smart workflow status
 
-Version 2.7.3 adds catalog-backed Smart SIG and Console stability while retaining the v2.7.1 native-size visual anchors for Order Entry, routing/priority, Rx qty, PRN, Comments, Routing Option Override and PowerChart Documentation. Covered targets use measured relative interiors, guarded input and existing result-verification protocols. The classic Console, hotkeys and clinical policies are retained. Diagnostic observations do not qualify protected field access.
+Version 2.7.4 repairs Pharmacy Console readiness and refresh recovery, restores captured Oracle source tracking, and removes the Health plan label as the universal Order Entry prerequisite. Order Entry acquisition now requires coherent PRN and Dispense Date/Time landmarks plus each target field's own native label. Catalog-backed Smart SIG and existing clinical policies are unchanged. Covered targets use measured relative interiors, guarded input and existing result-verification protocols. The classic Console, hotkeys and clinical policies are retained. Diagnostic observations do not qualify protected field access.
 
 Window/batch Window, UPSG/batch UPSG, Bridge, Smart SIG and Smart Refill now use explicit visual field protocols with guarded interaction and existing value/state checks. They require the configured assets to match the workstation. Blue borders are hover appearance, not proof of focus. PRN is located separately without automatic toggling. Upper Sig instructions is display-only. A submission send remains sent/unconfirmed, not Oracle acceptance.
 
-The v2.7.3 package starts in normal runtime. Extract all files, including Images/Runtime and Images/Squirrel.jpg, together. Missing, altered, ambiguous or unsupported visual assets stop the dependent operation; there is no fixed-point rescue. Templates retain native size with fixed per-anchor color variation and bounded polling; no automatic DPI scaling or tolerance escalation. A ZIP labeled **normal-candidate** is a separate review artifact. Only `--target-probe` selects read-only diagnostics. Smart SIG, Smart Refill, Window, UPSG and Bridge use reviewed visual field protocols. Smart Route remains unavailable without selected-prescription data acquisition. AutoHotkey, GUI and live Oracle acceptance have NOT RUN. Read `CANDIDATE-STATUS.md` when included.
+The v2.7.4 package starts in normal runtime. Extract all files, including Images/Runtime and Images/Squirrel.jpg, together. Missing, altered, ambiguous or unsupported visual assets stop the dependent operation; there is no fixed-point rescue. Templates retain native size with fixed per-anchor color variation and bounded polling; no automatic DPI scaling or tolerance escalation. A ZIP labeled **normal-candidate** is a separate review artifact. Only `--target-probe` selects read-only diagnostics. Smart SIG, Smart Refill, Window, UPSG and Bridge use reviewed visual field protocols. Smart Route remains unavailable without selected-prescription data acquisition. AutoHotkey, GUI and live Oracle acceptance have NOT RUN. Read `CANDIDATE-STATUS.md` when included.
+
+Tests and validators were not run for this release at user request. The package builder retains its embedded allowlist, sanitation and asset-integrity safeguards. AutoHotkey/Oracle runtime behavior remains unverified. Approved assets support the documented native layout; alternate rendering/scale assets and corresponding field geometry are not available.
 
 ## Read-only visual preflight
 
@@ -19,7 +21,7 @@ Launch `Scripts.ahk --target-probe`, open Diagnostics / Target Probe, then manua
 
 Open the [latest GitHub Release](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/latest) and download the attached file named `VA-Pharmacy-Automation-vX.Y.Z.zip`.
 
-Do **not** download GitHub's automatically generated **Source code (zip)** or **Source code (tar.gz)** files. Those are not the tested installation package.
+Do **not** download GitHub's automatically generated **Source code (zip)** or **Source code (tar.gz)** files. Those are not the installation package.
 
 ## Requirements
 
