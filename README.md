@@ -5,6 +5,10 @@ AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharm
 
 ## Runtime and Smart workflow status
 
+The replacement v2.7.4 package separates command availability from execution targeting. Console buttons and hotkeys do not require an already recognized Oracle foreground. On invocation, the selected external candidate is bound and image-driven operations require fresh reviewed state/field evidence before input. Title changes alone do not discard the selection; closed/recycled windows and unrelated applications remain rejected. Bridge/batch retain their configured-Citrix pre-Copy/Apply exception. Smart Refill's legacy Duplicate Order history controls still require the configured Citrix context because no corresponding visual history-control assets are qualified.
+
+If you installed the earlier v2.7.4, download and extract this replacement manually. The unchanged version number cannot trigger an update notification; use the ZIP checksum and manifest source commit to distinguish the packages.
+
 Version 2.7.4 repairs Pharmacy Console readiness and refresh recovery, restores captured Oracle source tracking, and removes the Health plan label as the universal Order Entry prerequisite. Order Entry acquisition now requires coherent PRN and Dispense Date/Time landmarks plus each target field's own native label. Catalog-backed Smart SIG and existing clinical policies are unchanged. Covered targets use measured relative interiors, guarded input and existing result-verification protocols. The classic Console, hotkeys and clinical policies are retained. Diagnostic observations do not qualify protected field access.
 
 Window/batch Window, UPSG/batch UPSG, Bridge, Smart SIG and Smart Refill now use explicit visual field protocols with guarded interaction and existing value/state checks. They require the configured assets to match the workstation. Blue borders are hover appearance, not proof of focus. PRN is located separately without automatic toggling. Upper Sig instructions is display-only. A submission send remains sent/unconfirmed, not Oracle acceptance.
