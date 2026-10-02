@@ -1,21 +1,21 @@
-<!-- VA Pharmacy Automation v3.2.0 -->
+<!-- VA Pharmacy Automation v3.2.1 -->
 # VA Pharmacy Automation
 
-**v3.2.0 LIVE TEST CANDIDATE — Smart Refill is not production-qualified. Stable public v3.1.1 remains unchanged. Read CANDIDATE-STATUS.md before supervised work testing.**
+**v3.2.1 — CMOP Supply Check integration. Live Oracle/Citrix acceptance is NOT RUN; Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision.**
 
 AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharmacy workflows through Citrix.
 
 ## Runtime and Smart workflow status
 
-The v3.2.0 package separates command availability from execution targeting. Console buttons and hotkeys do not require an already recognized Oracle foreground. On invocation, the selected external candidate is bound and image-driven operations require fresh reviewed state/field evidence before input. Title changes alone do not discard the selection; closed/recycled windows and unrelated applications remain rejected. Bridge/batch retain their configured-Citrix pre-Copy/Apply exception. Smart Refill's legacy Duplicate Order history controls still require the configured Citrix context because no corresponding visual history-control assets are qualified.
+The v3.2.1 package separates command availability from execution targeting. Console buttons and hotkeys do not require an already recognized Oracle foreground. On invocation, the selected external candidate is bound and image-driven operations require fresh reviewed state/field evidence before input. Title changes alone do not discard the selection; closed/recycled windows and unrelated applications remain rejected. Bridge/batch retain their configured-Citrix pre-Copy/Apply exception. Smart Refill's legacy Duplicate Order history controls still require the configured Citrix context because no corresponding visual history-control assets are qualified.
 
-Upgrade from v3.0.0 by downloading and extracting the complete v3.2.0 ZIP. Use the checksum and manifest to identify the package.
+Upgrade from v3.0.0 by downloading and extracting the complete v3.2.1 ZIP. Use the checksum and manifest to identify the package.
 
 Version 3.2.0 supports both reviewed SIG/Instructions label renderings, verifies retained SIG before changing Instructions, adds exact decimal Bridge quantities, removes UPSG, and restores classic native light controls. It retains the centered Ctrl+Alt+N squirrel animation, synthesized chitter and three-second lifetime introduced in v2.8.0. It synchronously reveals keyboard-focused controls in constrained Console windows, preserves explicit Console control state across tabs and rechecks the captured batch source before and after confirmation. It retains Pharmacy Console readiness and refresh recovery, restores captured Oracle source tracking, and removes the Health plan label as the universal Order Entry prerequisite. Operation-local acquisition replaces universal PRN/Date identity, exact cross-field spacing and fixed search rows. Routing/date use the original VA label bitmaps with their own search regions and offsets, converted from Window to Client coordinates. Other fields keep their own crops and offsets. Bounded searches and actual failed-bitmap reporting remain enforced. Catalog-backed Smart SIG and existing clinical policies are unchanged. Covered targets use measured relative interiors, guarded input and existing result-verification protocols. The classic Console, hotkeys and clinical policies are retained. Diagnostic observations do not qualify protected field access.
 
 Window/batch Window, Bridge, Smart SIG and Smart Refill now use explicit visual field protocols with guarded interaction and existing value/state checks. They require the configured assets to match the workstation. Blue borders are hover appearance, not proof of focus. PRN is located separately without automatic toggling. Upper Sig instructions is display-only. A submission send remains sent/unconfirmed, not Oracle acceptance.
 
-The v3.2.0 package starts in normal runtime. Extract all files, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav, together. Missing required templates, decoding errors, ambiguous matches or unsupported geometry stop the dependent operation; there is no fixed-point rescue. Native baseline templates remain the default. Explicit local profiles support lossless BMP/PNG replacements and bounded cached rescaling with declared field geometry. Color variation remains fixed; local DPI never determines remote layout scaling. A ZIP labeled **normal-candidate** is a separate review artifact. Only `--target-probe` selects read-only diagnostics. Smart SIG, Smart Refill, Window and Bridge use reviewed visual field protocols. Smart Route remains unavailable without selected-prescription data acquisition. Isolated AutoHotkey domain and Console smoke checks cover the packaged application. Live Oracle/Citrix acceptance has NOT RUN. Read `CANDIDATE-STATUS.md` when included.
+The v3.2.1 package starts in normal runtime. Extract all files, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav, together. Missing required templates, decoding errors, ambiguous matches or unsupported geometry stop the dependent operation; there is no fixed-point rescue. Native baseline templates remain the default. Explicit local profiles support lossless BMP/PNG replacements and bounded cached rescaling with declared field geometry. Color variation remains fixed; local DPI never determines remote layout scaling. A ZIP labeled **normal-candidate** is a separate review artifact. Only `--target-probe` selects read-only diagnostics. Smart SIG, Smart Refill, Window and Bridge use reviewed visual field protocols. Smart Route remains unavailable without selected-prescription data acquisition. Isolated AutoHotkey domain and Console smoke checks cover the packaged application. Live Oracle/Citrix acceptance has NOT RUN. Read `CANDIDATE-STATUS.md` when included.
 
 Release validation includes static, isolated domain, and packaged Console/runtime checks. Static and isolated domain checks do not establish live Oracle/Citrix acceptance. The package builder retains its embedded allowlist, sanitation and asset-integrity safeguards. Approved assets support the documented native layout; alternate rendering/scale assets and corresponding field geometry are not available.
 
@@ -25,7 +25,7 @@ Launch `Scripts.ahk --target-probe`, open Diagnostics / Target Probe, then manua
 
 ## Download
 
-[Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.2.0-rc.1) — complete enabled LIVE TEST application, public prerelease. Download its attached ZIP, extract separately, and read CANDIDATE-STATUS.md. Production qualification is INCOMPLETE and live Oracle acceptance is NOT RUN.
+[Download v3.2.1](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.2.1) — complete normal application. Extract every file together. Public availability does not establish live workflow acceptance or Smart Refill production qualification.
 
 The stable download and updater remain on the stable latest-release endpoint below.
 
@@ -70,6 +70,14 @@ When a newer release exists, the Console shows **Update available** and a **View
 All Oracle input is guarded by the application's validated Citrix context and workflow boundaries. The operator remains responsible for confirming the correct patient, prescription, values, and final Oracle result.
 
 ## Hotkeys
+
+CMOP Supply Check: hold plain Alt, double-left-click the Drug value beside
+`Drug:` in the foreground E-Prescription viewer, then release Alt and the mouse.
+The read-only popup displays `90 day item` for listed Days 90 or 84,
+`Not on CMOP 90 day initiative` for a complete negative determination, and
+`Unable to determine` for unsuccessful or invalid determinations. No prescription changes are made. The automatic reader supports a
+complete visible single line; wrapped, clipped and unsupported reads are unable
+to determine. Supervised live acceptance is required before clinical deployment.
 
 These bindings come from the distributed `UI/Hotkeys.ahk` module.
 
