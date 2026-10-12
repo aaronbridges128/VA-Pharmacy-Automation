@@ -1,21 +1,23 @@
-<!-- VA Pharmacy Automation v3.3.0 -->
+<!-- VA Pharmacy Automation v3.3.1 -->
 # VA Pharmacy Automation
 
-**v3.3.0 — Clipboard routing, Smart SIG and CMOP simplification. Live Oracle/Citrix acceptance is NOT RUN; Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision.**
+**v3.3.1 — Routing replacement, Copy Order continuation, New Order CMOP targeting and local issue reports. Live Oracle/Citrix acceptance is NOT RUN; Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision.**
 
 AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharmacy workflows through Citrix.
 
 ## Runtime and Smart workflow status
 
-Routing Option and Dispense Priority now use one clipboard paste of the complete configured value, a bounded transport settle and the required commit. They do not return to the field for a comparison. Known clinical dialogs pause for pharmacist review and explicit Resume. Comments, Routing Option Override and Copy Order may return through a new window; the next required field is acquired on that returned surface. Copy sends Alt+C once, and routing Continue is never replayed after uncertain delivery.
+Routing Option clears the editable value with two Ctrl+A commands and Backspace, pastes the complete configured value once, and commits with Tab. Dispense Priority retains clipboard paste and its necessary field commit. Known clinical dialogs pause for pharmacist review and explicit Resume. Comments, Routing Option Override and Copy Order may return through a new window; the next required field is acquired on that returned surface. Copy sends Alt+C once, and routing Continue is never replayed after uncertain delivery.
 
 The compact Pharmacy Console retains its classic native controls, workflow tabs and keyboard navigation, adds Priority Mail Batch and uses the production Smart SIG composer for manual previews. Smart SIG distinguishes three times daily from every eight hours, preserves residual Instructions and observes the required PRN state. Existing SIG, date, quantity and refill clinical checks remain.
 
 The replacement CMOP catalog accounts for all 114 supplied rows and includes broad insulin and NSAID class membership with complete-token ingredient and reviewed brand matching. The read-only Drug gesture uses one native copy. Its popup reports a supported 90/84-day initiative match, a complete negative result or an unresolved read; it never changes quantity, duration or the prescription.
 
-The v3.3.0 package starts in normal runtime. Extract every file together, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav. Missing templates, ambiguous matches or unsupported target geometry stop the dependent operation. Operation-local acquisition and short foreground/session guards protect input; diagnostic observations do not qualify field access. Only `--target-probe` selects read-only diagnostics. Smart Route remains unavailable without selected-prescription data acquisition. Smart Refill remains an enabled LIVE TEST workflow. A submission action does not establish Oracle acceptance. Live Oracle/Citrix acceptance has NOT RUN.
+The Console uses the historical native Windows palette with its current layout. Its **Bug Reports** window exports local technical reports; failed actions export automatically. The included companion observes the exact application process and records unexpected exits and the last action. It never restarts the application or replays a workflow. Keep `ExitMonitor.ahk` beside `Scripts.ahk`; the application launches it automatically.
 
-Upgrade by downloading and extracting the complete v3.3.0 ZIP. Use the checksum and manifest to identify it.
+The v3.3.1 package starts in normal runtime. Extract every file together, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav. Missing templates, ambiguous matches or unsupported target geometry stop the dependent operation. Operation-local acquisition and short foreground/session guards protect input; diagnostic observations do not qualify field access. Only `--target-probe` selects read-only diagnostics. Smart Route remains unavailable without selected-prescription data acquisition. Smart Refill remains an enabled LIVE TEST workflow. A submission action does not establish Oracle acceptance. Live Oracle/Citrix acceptance has NOT RUN.
+
+Upgrade by downloading and extracting the complete v3.3.1 ZIP. Use the checksum and manifest to identify it.
 
 Release validation includes static, isolated domain, and packaged Console/runtime checks. Static and isolated domain checks do not establish live Oracle/Citrix acceptance. The package builder retains its embedded allowlist, sanitation and asset-integrity safeguards. Approved assets support the documented native layout; alternate rendering/scale assets and corresponding field geometry are not available.
 
@@ -27,7 +29,7 @@ Launch `Scripts.ahk --target-probe`, open Diagnostics / Target Probe, then manua
 
 [Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.2.1-rc.1) — **v3.2.1-rc.1 public prerelease**. Download the attached complete application ZIP. This candidate repairs shared capture, expected dialogs, live-test entry and Bridge presentation, and separates Smart SIG administration codes, PRN state/reason and preserved Instructions. Pharmacist submission approvals and existing refill policies remain enabled. Live Oracle acceptance is NOT RUN.
 
-[Download v3.3.0](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.3.0) — complete normal application. Extract every file together. Public availability does not establish live workflow acceptance or Smart Refill production qualification.
+[Download v3.3.1](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.3.1) — complete normal application. Extract every file together. Public availability does not establish live workflow acceptance or Smart Refill production qualification.
 
 The stable download and updater remain on the stable latest-release endpoint below.
 
@@ -73,8 +75,8 @@ All Oracle input is guarded by the application's validated Citrix context and wo
 
 ## Hotkeys
 
-CMOP Supply Check: hold plain Alt, double-left-click the Drug value beside
-`Drug:` in the foreground Oracle/Citrix dialog, then release Alt and the mouse.
+CMOP Supply Check: hold plain Ctrl, double-left-click the Drug value below
+`Drug:` in the foreground Oracle/Citrix New Order window, then release Ctrl and the mouse.
 The reader locates the Drug label and copies the operator's native selection once.
 The read-only popup displays `90 day item` for catalog Days 90 or 84,
 `Not on CMOP 90 day initiative` for a complete negative determination, and
@@ -119,9 +121,9 @@ This public repository is the download and issue-reporting surface. Development 
 
 ## Smart SIG
 
-Smart SIG (`Ctrl+Alt+S`) uses the supplied, user-approved 765-entry Oracle catalog and constrained composition: `{Verb}{Quantity} {Formulation} {Route} {Frequency}`. Bedtime produces `T1 TAB PO QHS`; the demonstrated two-capsule daily instruction produces `T2 CAP PO D`. Half-tablet daily produces `T0.5 TAB PO D`. Eight compatible families cover oral, mucosal, drops, inhaled, topical, rectal, vaginal and fixed whole-unit subcutaneous morning injection instructions; the latter produces `INJ{units} UN SQ QAM`. The catalog has 385 typed recognition rules; 765 imported components do not mean 765 supported prescriptions. Catalog rows requiring richer grammar remain explicitly classified and addressable, not enabled merely because a token exists. No route is inferred from tablet/capsule form, no concentrations are converted, and unsupported essential qualifiers reject without replacement.
+Smart SIG (`Ctrl+Alt+S`) uses the reviewed 163-entry administration-only catalog and 171 recognition rules with constrained composition: `{Verb}{Quantity} {Formulation} {Route} {Frequency}`. Provenance retains the historical 765-row import separately. Bedtime produces `T1 TAB PO QHS`; two-capsule daily produces `T2 CAP PO D`; half-tablet daily produces `T0.5 TAB PO D`. Both “three times daily” and “three times a day” produce `T1 TAB PO TID` for the supplied oral-tablet example; explicit every-eight-hours remains Q8H. Eight compatible families include fixed whole-unit SQ morning injection (`INJ{units} UN SQ QAM`) and the demonstrated `APP1 OINT TOP BID`. PRN state/reason and residual Instructions remain separate from SIG. No route is inferred from dosage form, no concentrations are converted, and unsupported essential qualifiers reject without replacement.
 
-The existing New Order/Refill entry, bound prescription and commit guards remain. The legacy SIG `74,118` and Instructions `270,386` coordinates do not establish field identity. Smart SIG currently stops before field input because native field identity and the remote layout have not been qualified. Smart Refill Date/Time input has the same containment. No replacement coordinates were inferred; this is not a live-qualified fix. For qualified targets, acquisition settles physical launch/modifier keys under workflow ownership and uses guarded explicit Control events with cleanup; clipboard capture requires fresh text and preserves detectable concurrent updates. Local key state is not proof of remote delivery. A failed acquisition means Stopped; review Instructions, with no guessed rollback. The editable **Include Instructions / Do Not Include Instructions / Cancel** chooser preserves pharmacist edits exactly. Include-empty and Exclude clear source Instructions only after SIG Tab commit. Tabs/newlines are visibly flattened and require another Include click; other controls are rejected. Cancel, Escape and close perform no intentional replacement. A later Instructions failure reports `SMART_SIG_INSTRUCTIONS_UPDATE_FAILED`.
+Live Smart SIG acquires the reviewed lower Instructions label and associated field for one fresh full-field select/copy transaction. It preserves source text when capture or composition fails. The legacy SIG `74,118` and Instructions `270,386` coordinates do not authorize input. Physical launch/modifier release, clipboard ownership and detectable concurrent updates remain. SIG/PRN fields retain their meaningful commit/readback contracts before Instructions changes. Live Oracle/Citrix acceptance remains NOT RUN. The editable **Include Instructions / Do Not Include Instructions / Cancel** chooser preserves pharmacist edits exactly. Include-empty and Exclude clear source Instructions only after SIG Tab commit. Tabs/newlines are visibly flattened and require another Include click; other controls are rejected. Cancel, Escape and close perform no intentional replacement. A later Instructions failure reports `SMART_SIG_INSTRUCTIONS_UPDATE_FAILED`.
 
 Residual source offsets, parentheses, whitespace handling and sentence-case conversion of all-uppercase residual text are preserved. Unconsumed dosing qualifiers such as may increase/decrease, hold if, breakthrough dosing, unresolved as directed, alternate schedules, late PRN/duration and unknown PRN indications fail closed. Ordinary strength-change notes and bridge markers may use the chooser. The finite parser does not understand arbitrary prose.
 
