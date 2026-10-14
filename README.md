@@ -1,13 +1,13 @@
-<!-- VA Pharmacy Automation v3.3.1 -->
+<!-- VA Pharmacy Automation v3.3.2 -->
 # VA Pharmacy Automation
 
-**v3.3.1 — Routing replacement, Copy Order continuation, New Order CMOP targeting and local issue reports. Live Oracle/Citrix acceptance is NOT RUN; Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision.**
+**v3.3.2-rc.1 — Work-test candidate for copied-order timing, routing replacement, static label targeting and fatal-event diagnostics. Native access-violation cause remains unresolved. AHK 2.0.18 execution is NOT RUN. Live Oracle/Citrix acceptance is NOT RUN; Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision.**
 
 AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharmacy workflows through Citrix.
 
 ## Runtime and Smart workflow status
 
-Routing Option clears the editable value with two Ctrl+A commands and Backspace, pastes the complete configured value once, and commits with Tab. Dispense Priority retains clipboard paste and its necessary field commit. Known clinical dialogs pause for pharmacist review and explicit Resume. Comments, Routing Option Override and Copy Order may return through a new window; the next required field is acquired on that returned surface. Copy sends Alt+C once, and routing Continue is never replayed after uncertain delivery.
+Routing Option selects the editable value once, replaces it with one clipboard paste, and commits with Tab. Dispense Priority retains clipboard paste and its necessary field commit. Known clinical dialogs pause for pharmacist review and explicit Resume. Comments, Routing Option Override and Copy Order may return through a new window; the next required field is acquired on that returned surface. Copy sends Alt+C once and waits up to 15 seconds for the copied order, returning early when ready. Routing Continue is never replayed after uncertain delivery.
 
 The compact Pharmacy Console retains its classic native controls, workflow tabs and keyboard navigation, adds Priority Mail Batch and uses the production Smart SIG composer for manual previews. Smart SIG distinguishes three times daily from every eight hours, preserves residual Instructions and observes the required PRN state. Existing SIG, date, quantity and refill clinical checks remain.
 
@@ -15,9 +15,9 @@ The replacement CMOP catalog accounts for all 114 supplied rows and includes bro
 
 The Console uses the historical native Windows palette with its current layout. Its **Bug Reports** window exports local technical reports; failed actions export automatically. The included companion observes the exact application process and records unexpected exits and the last action. It never restarts the application or replays a workflow. Keep `ExitMonitor.ahk` beside `Scripts.ahk`; the application launches it automatically.
 
-The v3.3.1 package starts in normal runtime. Extract every file together, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav. Missing templates, ambiguous matches or unsupported target geometry stop the dependent operation. Operation-local acquisition and short foreground/session guards protect input; diagnostic observations do not qualify field access. Only `--target-probe` selects read-only diagnostics. Smart Route remains unavailable without selected-prescription data acquisition. Smart Refill remains an enabled LIVE TEST workflow. A submission action does not establish Oracle acceptance. Live Oracle/Citrix acceptance has NOT RUN.
+The v3.3.2 candidate starts in normal runtime. Extract every file together, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav. Missing templates, ambiguous matches or unsupported target geometry stop the dependent operation. Operation-local acquisition and short foreground/session guards protect input; diagnostic observations do not qualify field access. Only `--target-probe` selects read-only diagnostics. Smart Route remains unavailable without selected-prescription data acquisition. Smart Refill remains an enabled LIVE TEST workflow. A submission action does not establish Oracle acceptance. Live Oracle/Citrix acceptance has NOT RUN.
 
-Upgrade by downloading and extracting the complete v3.3.1 ZIP. Use the checksum and manifest to identify it.
+For supervised testing, download and extract the complete v3.3.2-rc.1 ZIP. Stable v3.3.1 remains available. Use the checksum and manifest to identify it.
 
 Release validation includes static, isolated domain, and packaged Console/runtime checks. Static and isolated domain checks do not establish live Oracle/Citrix acceptance. The package builder retains its embedded allowlist, sanitation and asset-integrity safeguards. Approved assets support the documented native layout; alternate rendering/scale assets and corresponding field geometry are not available.
 
@@ -27,7 +27,7 @@ Launch `Scripts.ahk --target-probe`, open Diagnostics / Target Probe, then manua
 
 ## Download
 
-[Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.2.1-rc.1) — **v3.2.1-rc.1 public prerelease**. Download the attached complete application ZIP. This candidate repairs shared capture, expected dialogs, live-test entry and Bridge presentation, and separates Smart SIG administration codes, PRN state/reason and preserved Instructions. Pharmacist submission approvals and existing refill policies remain enabled. Live Oracle acceptance is NOT RUN.
+[Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.3.2-rc.1) — **v3.3.2-rc.1 public prerelease**. Download the attached complete application ZIP. This candidate repairs routing selection replacement, copied-order waits, native label acquisition and durable fatal-event diagnostics. The native crash cause remains unresolved. Pharmacist submission approvals and existing refill policies remain enabled. Live Oracle acceptance is NOT RUN.
 
 [Download v3.3.1](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.3.1) — complete normal application. Extract every file together. Public availability does not establish live workflow acceptance or Smart Refill production qualification.
 
