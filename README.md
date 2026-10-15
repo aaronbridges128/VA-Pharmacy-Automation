@@ -1,15 +1,15 @@
-<!-- VA Pharmacy Automation v3.4.0 -->
+<!-- VA Pharmacy Automation v3.4.1 -->
 # VA Pharmacy Automation
 
-**v3.4.0-rc.1 — Work-test candidate for Console polish and queued Batch Bridge. AHK execution, native rendering and live Oracle/Citrix acceptance are NOT RUN. The native access-violation cause remains unresolved. Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision.**
+**v3.4.1-rc.1 — Supervised work-test candidate for routing acceptance, manual clinical-review return, CMOP gesture feedback and lower Instructions targeting. Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision. Live Oracle/Citrix acceptance and the reported intermittent exit remain unverified.**
 
 AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharmacy workflows through Citrix.
 
 ## Runtime and Smart workflow status
 
-Routing Option selects the editable value once, replaces it with one clipboard paste, and commits with Tab. Dispense Priority retains clipboard paste and its necessary field commit. Known clinical dialogs pause for pharmacist review and explicit Resume. Comments, Routing Option Override and Copy Order may return through a new window; the next required field is acquired on that returned surface. Copy sends Alt+C once and waits up to 15 seconds for the copied order, returning early when ready. Routing Continue is never replayed after uncertain delivery.
+Routing Option opens the dropdown, selects twice with Ctrl+A, clears with Backspace, pastes the configured value once, waits 500 ms, commits with Enter and waits 1000 ms. It observes Health plan, handles Routing Option Override with Alt+U/default reason once per episode, and compares a bounded fresh routing copy. Dispense Priority retains its paste and necessary commit without readback. Manual mCDS/Discern review does not expire active workflow budgets; cancellation and explicit Resume remain available. Comments, Routing Option Override and Copy Order may return through a new window; the next required field is acquired there. Copy sends Alt+C once and waits up to 15 seconds for the copied order, returning early when ready. Uncertain mutations are never replayed automatically.
 
-The Pharmacy Console uses native Windows controls and system colors with a fixed 960 x 644 logical layout, or a complete 900 x 564 compact layout selected for the monitor's actual usable area and native frame. It preserves minimize, close-to-hide, keyboard access and Always on Top. The main window has no resizing, maximize or scrollbars; an area smaller than the readable compact layout is reported instead of hiding controls. Native sizing across monitor/DPI combinations is not yet validated for this change.
+The Pharmacy Console uses native Windows controls, group borders and system colors with a fixed 960 x 644 logical layout, or a complete 900 x 564 compact layout selected for the monitor's actual usable area and native frame. It preserves minimize, close-to-hide, keyboard access and Always on Top. The main window has no resizing, maximize or scrollbars; an area smaller than the readable compact layout is reported instead of hiding controls. Both owned layouts were checked at 150% display scale; other monitor/DPI combinations require acceptance testing.
 
 Four permanent tabs provide Medication Manager, PowerChart, SIG Library and Utilities. Utilities contains selectable, wrapped Last Action output with pages for long results, Copy Last Action, Diagnostics, Bug Reports, README, Settings, update/build information and full Bridge/library/availability details. Copy takes the complete displayed local snapshot, respects a workflow's clipboard lease and leaves an explicit successful copy on the clipboard. Abort, conditional Resume and Hide remain reachable on every page. Ordinary utility and clinical dialogs retain their shared scrolling where needed.
 
@@ -21,11 +21,11 @@ The replacement CMOP catalog accounts for all 114 supplied rows and includes bro
 
 The Console's **Utilities > Bug Reports** window exports local technical reports; failed actions export automatically. The included companion observes the exact application process and records unexpected exits and the last action. It never restarts the application or replays a workflow. Keep `ExitMonitor.ahk` beside `Scripts.ahk`; the application launches it automatically.
 
-The v3.4.0 candidate starts in normal runtime. Extract every file together, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav. Missing templates, ambiguous matches or unsupported target geometry stop the dependent operation. Operation-local acquisition and short foreground/session guards protect input; diagnostic observations do not qualify field access. Only `--target-probe` selects read-only diagnostics. Smart Route remains unavailable without selected-prescription data acquisition. Smart Refill remains an enabled LIVE TEST workflow. A submission action does not establish Oracle acceptance. Live Oracle/Citrix acceptance has NOT RUN.
+The v3.4.1 candidate starts in normal runtime. Extract every file together, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav. Missing templates, ambiguous matches or unsupported target geometry stop the dependent operation. Operation-local acquisition and short foreground/session guards protect input; diagnostic observations do not qualify field access. Only `--target-probe` selects read-only diagnostics. Smart Route remains unavailable without selected-prescription data acquisition. Smart Refill remains an enabled LIVE TEST workflow. A submission action does not establish Oracle acceptance. Live Oracle/Citrix acceptance has NOT RUN.
 
-The candidate target is v3.4.0-rc.1; these source notes alone do not establish publication. Released v3.3.2-rc.2, v3.3.2-rc.1 and stable v3.3.1 remain available. Use each release's checksum and manifest to identify its complete ZIP.
+The candidate target is v3.4.1-rc.1; these source notes alone do not establish publication. Released v3.4.0-rc.1, v3.3.2-rc.2, v3.3.2-rc.1 and stable v3.3.1 remain available. Use each release's checksum and manifest to identify its complete ZIP.
 
-Release validation requires static, isolated domain and packaged Console/runtime checks. Changed GUI runtime, native screenshots and minimum-interpreter/live acceptance are NOT RUN under the current execution restriction; older candidate passes do not certify the changed GUI. Static checks do not establish native rendering or live Oracle/Citrix acceptance. The package builder retains its allowlist, sanitation and asset-integrity safeguards. Approved Oracle target assets support specific renderings; alternate rendering/scale assets and corresponding field geometry are not available.
+Release validation requires static, isolated domain and packaged Console/runtime checks. The October repair uses approved isolated AutoHotkey 2.0.28 fixtures and owned native GUI captures. AutoHotkey 2.0.26 and live Oracle/Citrix acceptance remain NOT RUN. Isolated fixtures do not establish live dropdown, clinical-dialog or remote clipboard acceptance. The package builder retains its allowlist, sanitation and asset-integrity safeguards. Approved Oracle target assets support specific renderings; alternate rendering/scale assets and corresponding field geometry are not available.
 
 ## Read-only visual preflight
 
@@ -33,7 +33,7 @@ Launch `Scripts.ahk --target-probe`, open Diagnostics / Target Probe, then manua
 
 ## Download
 
-[Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.4.0-rc.1) — **v3.4.0-rc.1 work-test candidate**. Includes Console polish, Priority Mail Batch's shortcut and queued Batch Bridge. Download only an actually published complete application ZIP with its checksum and manifest. The native crash cause remains unresolved. Pharmacist submission approvals and existing refill policies remain enabled. Changed GUI/runtime and live Oracle acceptance are NOT RUN.
+[Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.4.1-rc.1) — **v3.4.1-rc.1 work-test candidate**. Retains queued Batch Bridge and adds the reference routing acceptance sequence, manual clinical-review waiting, visible CMOP outcomes and a native lower Instructions label variant. Download only an actually published application ZIP with its checksum and manifest. Pharmacist submission boundaries remain. Live Oracle acceptance and physical VA OCRAP coexistence are NOT RUN.
 
 [Previously released work-test candidate](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.3.2-rc.2) — v3.3.2-rc.2 remains unchanged; it does not contain queued Batch Bridge or the header polish.
 
@@ -84,7 +84,7 @@ All Oracle input is guarded by the application's validated Citrix context and wo
 ## Hotkeys
 
 CMOP Supply Check: hold plain Ctrl, double-left-click the Drug value below
-`Drug:` in the foreground Oracle/Citrix New Order window, then release Ctrl and the mouse.
+`Drug:` in the foreground Oracle/Citrix order-entry form, then release Ctrl and the mouse.
 The reader locates the Drug label and copies the operator's native selection once.
 The read-only popup displays `90 day item` for catalog Days 90 or 84,
 `Not on CMOP 90 day initiative` for a complete negative determination, and
