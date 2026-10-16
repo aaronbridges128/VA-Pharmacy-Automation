@@ -1,7 +1,7 @@
-<!-- VA Pharmacy Automation v3.4.1 -->
+<!-- VA Pharmacy Automation v3.4.2 -->
 # VA Pharmacy Automation
 
-**v3.4.1-rc.1 — Supervised work-test candidate for routing acceptance, manual clinical-review return, CMOP gesture feedback and lower Instructions targeting. Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision. Live Oracle/Citrix acceptance and the reported intermittent exit remain unverified.**
+**v3.4.2-rc.1 — Supervised work-test candidate for WINDOW clipboard paste/500 ms/Tab, editable routing readback focus and precise visual-source diagnostics. Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision. Live Oracle/Citrix acceptance and the reported intermittent exit remain unverified.**
 
 AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharmacy workflows through Citrix.
 
@@ -21,9 +21,9 @@ The replacement CMOP catalog accounts for all 114 supplied rows and includes bro
 
 The Console's **Utilities > Bug Reports** window exports local technical reports; failed actions export automatically. The included companion observes the exact application process and records unexpected exits and the last action. It never restarts the application or replays a workflow. Keep `ExitMonitor.ahk` beside `Scripts.ahk`; the application launches it automatically.
 
-The v3.4.1 candidate starts in normal runtime. Extract every file together, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav. Missing templates, ambiguous matches or unsupported target geometry stop the dependent operation. Operation-local acquisition and short foreground/session guards protect input; diagnostic observations do not qualify field access. Only `--target-probe` selects read-only diagnostics. Smart Route remains unavailable without selected-prescription data acquisition. Smart Refill remains an enabled LIVE TEST workflow. A submission action does not establish Oracle acceptance. Live Oracle/Citrix acceptance has NOT RUN.
+The v3.4.2 candidate starts in normal runtime. Extract every file together, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav. Missing templates, ambiguous matches or unsupported target geometry stop the dependent operation. Operation-local acquisition and short foreground/session guards protect input; diagnostic observations do not qualify field access. Only `--target-probe` selects read-only diagnostics. Smart Route remains unavailable without selected-prescription data acquisition. Smart Refill remains an enabled LIVE TEST workflow. A submission action does not establish Oracle acceptance. Live Oracle/Citrix acceptance has NOT RUN.
 
-The candidate target is v3.4.1-rc.1; these source notes alone do not establish publication. Released v3.4.0-rc.1, v3.3.2-rc.2, v3.3.2-rc.1 and stable v3.3.1 remain available. Use each release's checksum and manifest to identify its complete ZIP.
+The candidate target is v3.4.2-rc.1; these source notes alone do not establish publication. Released v3.4.0-rc.1, v3.3.2-rc.2, v3.3.2-rc.1 and stable v3.3.1 remain available. Use each release's checksum and manifest to identify its complete ZIP.
 
 Release validation requires static, isolated domain and packaged Console/runtime checks. The October repair uses approved isolated AutoHotkey 2.0.28 fixtures and owned native GUI captures. AutoHotkey 2.0.26 and live Oracle/Citrix acceptance remain NOT RUN. Isolated fixtures do not establish live dropdown, clinical-dialog or remote clipboard acceptance. The package builder retains its allowlist, sanitation and asset-integrity safeguards. Approved Oracle target assets support specific renderings; alternate rendering/scale assets and corresponding field geometry are not available.
 
@@ -33,7 +33,7 @@ Launch `Scripts.ahk --target-probe`, open Diagnostics / Target Probe, then manua
 
 ## Download
 
-[Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.4.1-rc.1) — **v3.4.1-rc.1 work-test candidate**. Retains queued Batch Bridge and adds the reference routing acceptance sequence, manual clinical-review waiting, visible CMOP outcomes and a native lower Instructions label variant. Download only an actually published application ZIP with its checksum and manifest. Pharmacist submission boundaries remain. Live Oracle acceptance and physical VA OCRAP coexistence are NOT RUN.
+[Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.4.2-rc.1) — **v3.4.2-rc.1 work-test candidate**. Retains existing workflows and repairs WINDOW clipboard paste/500 ms/Tab, editable routing readback focus and bounded visual-source checks. Download only an actually published application ZIP with its checksum and manifest. Pharmacist submission boundaries remain. Live Oracle acceptance and physical VA OCRAP coexistence are NOT RUN.
 
 [Previously released work-test candidate](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.3.2-rc.2) — v3.3.2-rc.2 remains unchanged; it does not contain queued Batch Bridge or the header polish.
 
