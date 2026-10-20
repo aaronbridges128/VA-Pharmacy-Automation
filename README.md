@@ -1,13 +1,13 @@
 <!-- VA Pharmacy Automation v3.4.3 -->
 # VA Pharmacy Automation
 
-**v3.4.3-rc.2 — Supervised work-test candidate for Smart SIG capture, CMOP identity/Console state and supported Duplicate Order acquisition; WINDOW clipboard paste/500 ms/Tab is preserved. Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision. Live Oracle/Citrix acceptance remains unverified. Modify Order/OK remains manual.**
+**v3.4.3-rc.3 — Supervised Oracle reliability repair candidate for Console ownership, shared image targeting, bounded Resume, Smart SIG and CMOP/refill recovery. Routing whole-text selection and persistence remain unverified. Smart Refill remains an enabled LIVE TEST workflow requiring pharmacist supervision. Live Oracle/Citrix acceptance remains unverified. Modify Order/OK remains manual.**
 
 AutoHotkey v2 automation supporting selected Oracle Health / Cerner retail pharmacy workflows through Citrix.
 
 ## Runtime and Smart workflow status
 
-Routing Option opens the dropdown, selects twice with Ctrl+A, clears with Backspace, pastes the configured value once, waits 500 ms, commits with Enter and waits 1000 ms. It observes Health plan, handles Routing Option Override with Alt+U/default reason once per episode, and compares a bounded fresh routing copy. Dispense Priority retains its paste and necessary commit without readback. Manual mCDS/Discern review does not expire active workflow budgets; cancellation and explicit Resume remain available. Comments, Routing Option Override and Copy Order may return through a new window; the next required field is acquired there. Copy sends Alt+C once and waits up to 15 seconds for the copied order, returning early when ready. Uncertain mutations are never replayed automatically.
+Routing Option opens the dropdown, selects twice with Ctrl+A, pastes the configured value once, waits 500 ms, commits with Tab and waits 1000 ms. It observes Health plan, handles Routing Option Override with Alt+U/default reason once per episode, and compares a bounded fresh routing copy. Interior-click/Escape/Ctrl+C whole-text selection and actual routing persistence remain unverified; a mismatch stops the workflow without repasting. Dispense Priority retains its paste and necessary commit without readback. Manual mCDS/Discern review does not expire active workflow budgets; cancellation and explicit Resume remain available. Comments, Routing Option Override and Copy Order may return through a new window; the next required field is acquired there. Copy sends Alt+C once and waits up to 15 seconds for the copied order, returning early when ready. Uncertain mutations are never replayed automatically.
 
 The Pharmacy Console uses native Windows controls, group borders and system colors with a fixed 960 x 644 logical layout, or a complete 900 x 564 compact layout selected for the monitor's actual usable area and native frame. It preserves minimize, close-to-hide, keyboard access and Always on Top. The main window has no resizing, maximize or scrollbars; an area smaller than the readable compact layout is reported instead of hiding controls. Both owned layouts were checked at 150% display scale; other monitor/DPI combinations require acceptance testing.
 
@@ -23,9 +23,9 @@ The Console's **Utilities > Bug Reports** window exports local technical reports
 
 The v3.4.3 candidate starts in normal runtime. Extract every file together, including Images/Runtime, Images/Squirrel.jpg and Sounds/SquirrelChitter.wav. Missing templates, ambiguous matches or unsupported target geometry stop the dependent operation. Operation-local acquisition and short foreground/session guards protect input; diagnostic observations do not qualify field access. Only `--target-probe` selects read-only diagnostics. Smart Route remains unavailable without selected-prescription data acquisition. Smart Refill remains an enabled LIVE TEST workflow. A submission action does not establish Oracle acceptance. Live Oracle/Citrix acceptance has NOT RUN.
 
-The candidate target is v3.4.3-rc.2; these source notes alone do not establish publication. Released v3.4.2-rc.1, v3.4.1-rc.1, v3.4.0-rc.1, v3.3.2-rc.2, v3.3.2-rc.1 and stable v3.3.1 remain available. Use each release's checksum and manifest to identify its complete ZIP.
+The candidate target is v3.4.3-rc.3; these source notes alone do not establish publication. Released v3.4.3-rc.2, v3.4.2-rc.1, v3.4.1-rc.1, v3.4.0-rc.1, v3.3.2-rc.2, v3.3.2-rc.1 and stable v3.3.1 remain available. Use each release's checksum and manifest to identify its complete ZIP.
 
-Release validation requires static, isolated domain and packaged Console/runtime checks. The October repair uses approved isolated AutoHotkey 2.0.28 fixtures and owned native GUI captures. AutoHotkey 2.0.26 and live Oracle/Citrix acceptance remain NOT RUN. Isolated fixtures do not establish live dropdown, clinical-dialog or remote clipboard acceptance. The package builder retains its allowlist, sanitation and asset-integrity safeguards. Approved Oracle target assets support specific renderings; alternate rendering/scale assets and corresponding field geometry are not available.
+This repair passed focused noninteractive fixtures on AutoHotkey 2.0.28. AutoHotkey 2.0.18 crash reproduction, native routing selection, the production AHK GDI crop path and live Oracle/Citrix acceptance remain NOT RUN. Isolated fixtures do not establish live dropdown, clinical-dialog or remote clipboard acceptance. The first reported StopDate rendering miss remains unreproduced, and longer observation budgets are provisional. The package builder retains its allowlist, sanitation and asset-integrity safeguards. Existing approved target pixels are unchanged; native-label interiors do not qualify arbitrary fonts, scales or reflowed layouts.
 
 ## Read-only visual preflight
 
@@ -33,7 +33,7 @@ Launch `Scripts.ahk --target-probe`, open Diagnostics / Target Probe, then manua
 
 ## Download
 
-[Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.4.3-rc.2) — **v3.4.3-rc.2 work-test candidate**. Retains existing workflows and repairs Smart SIG field capture, CMOP lookup/Console state and initial Duplicate Order history acquisition; WINDOW paste/500 ms/Tab is preserved. Download only an actually published application ZIP with its checksum and manifest. Pharmacist submission boundaries remain. Live Oracle acceptance and physical VA OCRAP coexistence are NOT RUN.
+[Latest Smart Refill test build](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.4.3-rc.3) — **v3.4.3-rc.3 work-test candidate**. Repairs Console ownership, shared acquisition accounting/searches, pending-field Resume, Smart SIG and CMOP/refill recovery. Routing selection/persistence remains unverified. Download only an actually published application ZIP with its checksum and manifest. Pharmacist submission boundaries remain. Live Oracle acceptance and physical VA OCRAP coexistence are NOT RUN.
 
 [Previously released work-test candidate](https://github.com/aaronbridges128/VA-Pharmacy-Automation/releases/tag/v3.3.2-rc.2) — v3.3.2-rc.2 remains unchanged; it does not contain queued Batch Bridge or the header polish.
 
